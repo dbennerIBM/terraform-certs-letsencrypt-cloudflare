@@ -15,7 +15,7 @@ output "router_key" {
 }
 
 data "external" "letsencrypt_ca_cert" {
-  program = ["sh", "${path.module}/scripts/get_letsencrypt_ca_cert.sh"]
+  program = ["bash", "${path.module}/scripts/get_letsencrypt_ca_cert.sh"]
   
 
   query = {
