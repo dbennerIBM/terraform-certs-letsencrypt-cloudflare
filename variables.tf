@@ -1,5 +1,3 @@
-variable "cloudflare_email" {}
-variable "cloudflare_token" {}
 
 variable "letsencrypt_email" {
   description = "email address used to register with letsencrypt"
