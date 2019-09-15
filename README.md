@@ -1,6 +1,9 @@
 ## terraform-certs-letsencrypt-dns01
 
-This is meant to be used as a module, make sure your module implementation sets all the variables in its terraform.tfvars file
+This is meant to be used as a module, make sure your module implementation sets all the variables in its terraform.tfvars file.
+
+Before usage, you need to set the dns provider type (default is `cloudflare`) as well as any environment variables used for automation of the DNS service.  For more details see [https://www.terraform.io/docs/providers/acme/dns_providers/index.html](https://www.terraform.io/docs/providers/acme/dns_providers/index.html).
+
 
 ```terraform
 module "certs" {
