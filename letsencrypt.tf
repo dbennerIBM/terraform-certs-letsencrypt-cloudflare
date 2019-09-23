@@ -16,6 +16,7 @@ resource "acme_registration" "reg" {
 resource "acme_certificate" "master_certificate" {
   account_key_pem           = "${acme_registration.reg.account_key_pem}"
   common_name               = "${var.cluster_cname}"
+  recursive_nameservers = "${var.dns_servers}"
 
   dns_challenge {
     provider = "${var.letsencrypt_dns_provider}"
@@ -25,6 +26,7 @@ resource "acme_certificate" "master_certificate" {
 resource "acme_certificate" "app_subdomain_certificate" {
   account_key_pem           = "${acme_registration.reg.account_key_pem}"
   common_name               = "*.${var.app_subdomain}"
+  recursive_nameservers = "${var.dns_servers}"
 
   dns_challenge {
     provider = "${var.letsencrypt_dns_provider}"
