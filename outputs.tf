@@ -14,15 +14,11 @@ output "router_key" {
   value = "${acme_certificate.app_subdomain_certificate.private_key_pem}"
 }
 
-data "external" "letsencrypt_ca_cert" {
-  program = ["bash", "${path.module}/scripts/get_letsencrypt_ca_cert.sh"]
-  
-
-  query = {
-  }
+data "http" "letsencrypt_ca_cert" {
+  url = "https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem.txt"
 }
 
 # write out the letsencrypt CA
 output "ca_cert" {
-    value = "${base64decode(data.external.letsencrypt_ca_cert.result["cert64"])}"
+    value = "${data.http.letsencrypt_ca_cert.body}"
 }

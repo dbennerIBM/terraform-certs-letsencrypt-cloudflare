@@ -1,5 +1,3 @@
-variable "cloudflare_email" {}
-variable "cloudflare_token" {}
 
 variable "letsencrypt_email" {
   description = "email address used to register with letsencrypt"
@@ -21,4 +19,9 @@ variable "app_subdomain" {
 
 variable "cluster_cname" {
   description = "dns CNAME for master VIP"
+}
+
+variable "dns_servers" {
+  type = "list"
+  default = ["1.1.1.1:53"]
 }
