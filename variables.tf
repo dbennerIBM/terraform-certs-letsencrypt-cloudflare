@@ -23,5 +23,5 @@ variable "cluster_cname" {
 
 variable "dns_servers" {
   type = "list"
-  default = ["1.1.1.1:53"]
+  default = ["asa.ns.cloudflare.com"]
 }
